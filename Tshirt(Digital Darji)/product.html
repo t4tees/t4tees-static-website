@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!--   Tshirt Printing  -->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Tshirt Printing</title>
+  <meta name="description" content="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" />
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="assets/css/plugins.css">
+  <!-- Bootstap CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  .colors {
+    display: flex;
+
+    width: 100%;
+
+  }
+
+  .colors ul li {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    /* background-color:var(--color) ; */
+    display: inline-block;
+    cursor: pointer;
+
+  }
+
+  .image_container {
+    width: 400px;
+    display: block;
+    background-color: var(--color);
+  }
+
+  .drawing-area {
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    z-index: 10;
+
+    width: 245px;
+    height: 400px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    .drawing-area {
+      position: absolute;
+      top: 120px;
+      left: 59px;
+      z-index: 10;
+      width: 245px;
+      height: 400px;
+    }
+  }
+
+  .canvas-container {
+    width: 245px;
+    height: 400px;
+    position: relative;
+    user-select: none;
+  }
+
+  #tshirt-div {
+    width: 312px;
+
+    position: relative;
+    background-color: transparent;
+
+  }
+
+  #canvas {
+    position: absolute;
+    width: 245px;
+    height: 400px;
+    left: 0px;
+    top: 0px;
+    user-select: none;
+    cursor: default;
+  }
+</style>
+
+<body class="our">
+  <div id="pre-loader">
+    <img src="assets/images/loader.gif" alt="Loading..." />
+  </div>
+  <div class="pageWrapper">
+    <!--Search Form Drawer-->
+    <div class="search">
+      <div class="search__form">
+        <form class="search-bar__form" action="#">
+          <button class="go-btn search__button" type="submit"><i class="icon
+                anm anm-search-l"></i></button>
+          <input class="search__input" type="search" name="q" value="" placeholder="Search entire store..."
+            aria-label="Search" autocomplete="off">
+        </form>
+        <button type="button" class="search-trigger close-btn"><i class="anm
+              anm-times-l"></i></button>
+      </div>
+    </div>
+    <!--End Search Form Drawer-->
+    <!--Top Header-->
+    <div class="top-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-10 col-sm-8 col-md-5 col-lg-4">
+
+
+            <p class="phone-no"><i class="anm anm-phone-s"></i> +91 1234567890</p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block
+              d-lg-block">
+            <div class="text-center">
+              <p class="top-header_middle-text"> Tshirt
+                Printing</p>
+            </div>
+          </div>
+          <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
+            <span class="user-menu d-block d-lg-none"><i class="anm
+                  anm-user-al" aria-hidden="true"></i></span>
+            <ul class="customer-links list-inline">
+              <li><a href="login.html">Login</a></li>
+              <li><a href="register.html">Create Account</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Top Header-->
+    <!--Header-->
+    <div class="header-wrap animated d-flex border-bottom">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <!--Desktop Logo-->
+          <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
+            <a href="index.html">
+              <img src="./img/creative-colorful-unique-tee-shirt-design-logo-vector-22427970-removebg-preview.png"
+                alt="tshirt" title="tshirt" height="52" />
+            </a>
+          </div>
+          <!--End Desktop Logo-->
+          <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+
+
+          </div>
+          <!--Mobile Logo-->
+          <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none
+              mobile-logo">
+            <div class="logo">
+              <a href="index.html">
+                <img src="img/creative-colorful-unique-tee-shirt-design-logo-vector-22427970-removebg-preview.png"
+                  alt="tshirt print" title="tshirt print" />
+              </a>
+            </div>
+          </div>
+          <!--Mobile Logo-->
+          <div class="col-4 col-sm-3 col-md-3 col-lg-2">
+            <div class="site-cart">
+              <a href="#;" class="site-header__cart" title="Cart">
+                <i class="icon anm anm-bag-l"></i>
+                <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
+              </a>
+              <!--Minicart Popup-->
+              <div id="header-cart" class="block block-cart">
+                <ul class="mini-products-list">
+                  <li class="item">
+                    <a class="product-image" href="#">
+                      <img src="assets/images/product-images/cape-dress-1.jpg" alt="3/4 Sleeve Kimono Dress" title="" />
+                    </a>
+                    <div class="product-details">
+                      <a href="#" class="remove"><i class="anm anm-times-l" aria-hidden="true"></i></a>
+                      <a href="#" class="edit-i remove"><i class="anm
+                            anm-edit" aria-hidden="true"></i></a>
+                      <a class="pName" href="cart.html">Sleeve Kimono Dress</a>
+                      <div class="variant-cart">Black / XL</div>
+                      <div class="wrapQtyBtn">
+                        <div class="qtyField">
+                          <span class="label">Qty:</span>
+                          <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r"
+                              aria-hidden="true"></i></a>
+                          <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
+                          <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r"
+                              aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                      <div class="priceRow">
+                        <div class="product-price">
+                          <span class="money">$59.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <a class="product-image" href="#">
+                      <img src="assets/images/product-images/cape-dress-2.jpg" alt="Elastic Waist Dress - Black / Small"
+                        title="" />
+                    </a>
+                    <div class="product-details">
+                      <a href="#" class="remove"><i class="anm anm-times-l" aria-hidden="true"></i></a>
+                      <a href="#" class="edit-i remove"><i class="anm
+                            anm-edit" aria-hidden="true"></i></a>
+                      <a class="pName" href="cart.html">Elastic Waist Dress</a>
+                      <div class="variant-cart">Gray / XXL</div>
+                      <div class="wrapQtyBtn">
+                        <div class="qtyField">
+                          <span class="label">Qty:</span>
+                          <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r"
+                              aria-hidden="true"></i></a>
+                          <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
+                          <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r"
+                              aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                      <div class="priceRow">
+                        <div class="product-price">
+                          <span class="money">$99.00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="total">
+                  <div class="total-in">
+                    <span class="label">Cart Subtotal:</span><span class="product-price"><span
+                        class="money">$748.00</span></span>
+                  </div>
+                  <div class="buttonSet text-center">
+                    <a href="cart.html" class="btn btn-secondary btn--small">View
+                      Cart</a>
+                    <a href="checkout.html" class="btn btn-secondary
+                        btn--small">Checkout</a>
+                  </div>
+                </div>
+              </div>
+              <!--End Minicart Popup-->
+            </div>
+            <div class="site-header__search">
+              <button type="button" class="search-trigger"><i class="icon anm
+                    anm-search-l"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Header-->
+
+
+    <!--Body Content-->
+    <div id="page-content">
+      <!--MainContent-->
+      <div id="MainContent" class="main-content" role="main">
+        <!--Breadcrumb-->
+        <div class="bredcrumbWrap">
+          <div class="container breadcrumbs">
+            <a href="index.html" title="Back to the home page">Home</a><span aria-hidden="true">›</span><span>Product
+              With Left Thumbs</span>
+          </div>
+        </div>
+        <!--End Breadcrumb-->
+
+        <div id="ProductSection-product-template" class="product-template__container prstyle1 container">
+          <!--product-single-->
+          <div class="product-single">
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+                <div class="product-details-img">
+                  <div class="product-thumb">
+
+                  </div>
+                  <div class="zoompro-wrap product-zoom-right pl-20">
+                    <div id="tshirt-div">
+
+                      <img id="tshirt-backgroundpicture" class="image_container" src="background_tshirt.png"
+                        data-zoom-image="background_tshirt.png" />
+                      <div id="drawingArea" class="drawing-area">
+                        <div class="canvas-container">
+                          <canvas id="tshirt-canvas"></canvas>
+                        </div>
+                      </div>
+                    </div><!-- End .product-main-image -->
+
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="product-single__meta">
+                  <h1 class="product-single__title">Tshirt Description</h1>
+
+
+                  <p class="product-single__price
+                      product-single__price-product-template">
+                    <span class="visually-hidden">Regular price</span>
+                    <s id="ComparePrice-product-template"><span class="money">₹700.00</span></s>
+                    <span class="product-price__price
+                        product-price__price-product-template
+                        product-price__sale product-price__sale--single">
+                      <span id="ProductPrice-product-template"><span class="money">₹500.00</span></span>
+                    </span>
+                    <span class="discount-badge"> <span class="devider">|</span>&nbsp;
+                      <span>You Save</span>
+                      <span id="SaveAmount-product-template" class="product-single__save-amount">
+                        <span class="money">₹200.00</span>
+                      </span>
+
+                    </span>
+                  </p>
+                  <div class="orderMsg" data-user="23" data-time="24">
+                    <img src="assets/images/order-icon.jpg" alt="" /> <strong class="items">5</strong> sold in last
+                    <strong class="time">26</strong> hours
+                  </div>
+                </div>
+                <div class="product-single__description rte">
+                  <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit</li>
+                    <li>Sed ut perspiciatis unde omnis iste natus error sit</li>
+                    <li>Neque porro quisquam est qui dolorem ipsum quia dolor</li>
+                    <li>Lorem Ipsum is not simply random text.</li>
+                  </ul>
+                </div>
+
+
+                <div id="quantity_message">Hurry! Only <span class="items">4</span>
+                  left in stock.</div>
+                <br>
+
+                <div class="details-filter-row details-row-size">
+
+                  <label for="tshirt-design">T-Shirt Design:</label>
+                  <div class="select-custom">
+                    <select id="tshirt-design" class="form-control">
+                      <option value="#" selected="selected">Select one of our
+                        designs.</option>
+                      <option value="shoes2.png">Batman</option>
+                    </select>
+                  </div><!-- End .select-custom -->
+
+
+                </div><!-- End .details-filter-row -->
+                <br>
+                <form method="post" action="" id="" accept-charset="UTF-8" class="product-form product-form-product-template
+                    hidedropdown" enctype="multipart/form-data">
+                  <div class="swatch clearfix swatch-0 option1" data-option-index="0">
+                    <div class="product-form__item">
+                      <label class="header">Color: <span class="slVariant"></span></label>
+                      <div class="colors">
+                        <ul>
+                          <li data-color="#000" style="background-color:
+                              #000;"></li>
+                          <li data-color="#E91E63" style="background-color:#E91E63 ;"></li>
+                          <li data-color="#9C27B0" style="background-color:
+                              #9C27B0;"></li>
+                          <li data-color="rgb(128, 255, 0)" style="background-color:rgb(128, 255, 0) ;"></li>
+                          <!-- <li data-color="#795548" style="background-color:#795548 ;"></li> -->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swatch clearfix swatch-1 option2" data-option-index="1">
+                    <div class="product-form__item">
+                      <label class="header">Size: <span class="slVariant"></span></label>
+                      <div data-value="XS" class="swatch-element xs
+                          available">
+                        <input class="swatchInput" id="swatch-1-xs" type="radio" name="option-1" value="XS">
+                        <label class="swatchLbl medium rectangle" for="swatch-1-xs" title="XS">XS</label>
+                      </div>
+                      <div data-value="S" class="swatch-element s available">
+                        <input class="swatchInput" id="swatch-1-s" type="radio" name="option-1" value="S">
+                        <label class="swatchLbl medium rectangle" for="swatch-1-s" title="S">S</label>
+                      </div>
+                      <div data-value="M" class="swatch-element m available">
+                        <input class="swatchInput" id="swatch-1-m" type="radio" name="option-1" value="M">
+                        <label class="swatchLbl medium rectangle" for="swatch-1-m" title="M">M</label>
+                      </div>
+                      <div data-value="L" class="swatch-element l available">
+                        <input class="swatchInput" id="swatch-1-l" type="radio" name="option-1" value="L">
+                        <label class="swatchLbl medium rectangle" for="swatch-1-l" title="L">L</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Product Action -->
+                  <div class="product-action clearfix">
+                    <div class="product-form__item--quantity">
+                      <div class="wrapQtyBtn">
+                        <div class="qtyField">
+                          <a class="qtyBtn minus" href="javascript:void(0);"><i class="fa anm anm-minus-r"
+                              aria-hidden="true"></i></a>
+                          <input type="text" id="Quantity" name="quantity" value="1" class="product-form__input qty">
+                          <a class="qtyBtn plus" href="javascript:void(0);"><i class="fa anm anm-plus-r"
+                              aria-hidden="true"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-form__item--submit">
+                      <button type="button" name="add" class="btn
+                          product-form__cart-submit">
+                        <span>Add to cart</span>
+                      </button>
+                    </div>
+                    <div class="shopify-payment-button" data-shopify="payment-button">
+                      <a href="login.html"> <button type="button" class="shopify-payment-button__button
+                            shopify-payment-button__button--unbranded">Buy it
+                          now</button>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- End Product Action -->
+                </form>
+
+
+                <p id="freeShipMsg" class="freeShipMsg" data-price="199"><i class="fa fa-truck" aria-hidden="true"></i>
+                  GETTING
+                  CLOSER! ONLY <b class="freeShip"><span class="money" data-currency-usd="$199.00"
+                      data-currency="USD">$199.00</span></b>
+                  AWAY FROM <b>FREE SHIPPING!</b></p>
+                <p class="shippingMsg"><i class="fa fa-clock-o" aria-hidden="true"></i> ESTIMATED DELIVERY BETWEEN <b
+                    id="fromDate">Wed. May 1</b> and <b id="toDate">Tue. May 7</b>.</p>
+                <div class="userViewMsg" data-user="20" data-time="11000"><i class="fa fa-users" aria-hidden="true"></i>
+                  <strong class="uersView">14</strong> PEOPLE ARE LOOKING FOR THIS
+                  PRODUCT</div>
+              </div>
+            </div>
+          </div>
+          <!--End-product-single-->
+
+
+
+
+
+
+        </div>
+        <!--#ProductSection-product-template-->
+        <br><br>
+
+        <div class="bg-light-2 pt-6 pb-6 featured">
+          <div class="container-fluid">
+            <div class="heading heading-center mb-3">
+              <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+            </div><!-- End .heading -->
+            <div class="container-product">
+              <div class="card1" style="background:#201e1e;">
+                <div class="header1">
+                  <div class="title1">
+                    <div class="name1">
+
+                      JL Character Logos T-shirt</div>
+                    <div class="rate1">
+                      <div class="price">Price
+                        <span>Rs. 340/-<span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="img1"><img style="width:160px;"
+                    src="./assets/images/justice-league-character-logos-t-shirt-india1-removebg-preview.png"></div>
+                <br>
+                <div class="amount">
+                  <h4>Quantity</h4>
+                  <div class="count">
+                    <button class="descrease">&minus;</button>
+                    <input type="text" id="put" value="1"></input>
+                    <button class="increase">&plus;</button>
+                  </div>
+                </div>
+
+                <div class="foot-card">
+                  <button class="buy">add to cart</button>
+                  <svg class="save" width="30" height="40" viewBox="0 0 24
+                        35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  </svg>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="card1" style="background:#b2dd23;">
+                <div class="header1">
+                  <div class="title1">
+                    <div class="name1" style="color: #1d1d1d;">
+
+                      Lion King T-shirt</div>
+                    <div class="rate1">
+                      <div class="price" style="color: #1d1d1d;">Price
+                        <span>Rs. 340/-<span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="img1"><img style="width:160px;" src="./assets/images/new-arrivals.png"></div>
+                <br>
+                <div class="amount">
+                  <h4 style="color: #1d1d1d;"> Quantity</h4>
+                  <div class="count">
+                    <button class="descrease">&minus;</button>
+                    <input type="text" id="put" value="1"></input>
+                    <button class="increase">&plus;</button>
+                  </div>
+                </div>
+
+                <div class="foot-card">
+                  <button class="buy">add to cart</button>
+                  <svg class="save" width="30" height="40" viewBox="0 0 24
+                          35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  </svg>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="card1" style="background:#201e1e;">
+                <div class="header1">
+                  <div class="title1">
+                    <div class="name1">
+
+                      JL Character Logos T-shirt</div>
+                    <div class="rate1">
+                      <div class="price">Price
+                        <span>Rs. 340/-<span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="img1"><img style="width:160px;"
+                    src="./assets/images/justice-league-character-logos-t-shirt-india1-removebg-preview.png"></div>
+                <br>
+                <div class="amount">
+                  <h4>Quantity</h4>
+                  <div class="count">
+                    <button class="descrease">&minus;</button>
+                    <input type="text" id="put" value="1"></input>
+                    <button class="increase">&plus;</button>
+                  </div>
+                </div>
+
+                <div class="foot-card">
+                  <button class="buy">add to cart</button>
+                  <svg class="save" width="30" height="40" viewBox="0 0
+                            24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                  </svg>
+                </div>
+
+              </div>
+
+
+              <div class="card1" style="background:#b2dd23;">
+                <div class="header1">
+                  <div class="title1">
+                    <div class="name1" style="color: #1d1d1d;">
+
+                      Lion King T-shirt</div>
+                    <div class="rate1">
+                      <div class="price" style="color: #1d1d1d;">Price
+                        <span>Rs. 340/-<span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="img1"><img style="width:160px;" src="./assets/images/new-arrivals.png"></div>
+                <br>
+                <div class="amount">
+                  <h4 style="color: #1d1d1d;"> Quantity</h4>
+                  <div class="count">
+                    <button class="descrease">&minus;</button>
+                    <input type="text" id="put" value="1"></input>
+                    <button class="increase">&plus;</button>
+                  </div>
+                </div>
+
+                <div class="foot-card">
+                  <button class="buy">add to cart</button>
+                  <svg class="save" width="30" height="40" viewBox="0
+                              0 24 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                  </svg>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+          </div><!-- End .container-fluid -->
+        </div><!-- End .bg-light-2 pt-4 pb-4 -->
+      </div>
+      <!--MainContent-->
+    </div>
+    <!--End Body Content-->
+
+    <!--Footer-->
+    <footer id="footer" class="footer-2">
+      <div class="newsletter-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7 w-100
+                        d-flex
+                        justify-content-start align-items-center">
+              <div class="display-table">
+                <div class="display-table-cell footer-newsletter">
+                  <div class="section-header text-center">
+                    <label class="h2"><span>sign up for </span>newsletter</label>
+                  </div>
+                  <form action="#" method="post">
+                    <div class="input-group">
+                      <input type="email" class="input-group__field
+                                  newsletter__input" name="EMAIL" value="" placeholder="Email address" required="">
+                      <span class="input-group__btn">
+                        <button type="submit" class="btn
+                                    newsletter__submit" name="commit" id="Subscribe"><span
+                            class="newsletter__submit-text--large">Subscribe</span></button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex
+                        justify-content-end align-items-center">
+              <div class="footer-social">
+                <ul class="list--inline site-footer__social-icons
+                            social-icons">
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon
+                                  icon-facebook"></i></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon icon-twitter"></i>
+                      <span class="icon__fallback-text">Twitter</span></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon
+                                  icon-pinterest"></i> <span class="icon__fallback-text">Pinterest</span></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon
+                                  icon-instagram"></i> <span class="icon__fallback-text">Instagram</span></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon
+                                  icon-tumblr-alt"></i> <span class="icon__fallback-text">Tumblr</span></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon icon-youtube"></i>
+                      <span class="icon__fallback-text">YouTube</span></a></li>
+                  <li><a class="social-icons__link" href="#" target="_blank"><i class="icon icon-vimeo-alt"></i>
+                      <span class="icon__fallback-text">Vimeo</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer" style="background-color: black;">
+        <div class="container">
+          <!--Footer Links-->
+          <div class="footer-top">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3
+                          footer-links">
+                <h4 class="h4">Tshirt</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Facilis eaque consequuntur, tempora iure earum
+                  molestias illo suscipit distinctio cum sed
+                  doloremque
+                  quo necessitatibus temporibus, deleniti rem, iste
+                  molestiae ratione fuga?</p>
+              </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3
+                          footer-links">
+                <h4 class="h4">Informations</h4>
+                <ul>
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Privacy policy</a></li>
+                  <li><a href="#">Terms &amp; condition</a></li>
+                  <li><a href="#">My Account</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3
+                          footer-links">
+                <h4 class="h4">Customer Services</h4>
+                <ul>
+                  <li><a href="#">Request Personal Data</a></li>
+                  <li><a href="#">FAQ's</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Orders and Returns</a></li>
+                  <li><a href="#">Support Center</a></li>
+                </ul>
+              </div>
+              <div class="col-12 col-sm-12 col-md-3 col-lg-3
+                          contact-box">
+                <h4 class="h4">Contact Us</h4>
+                <ul class="addressFooter">
+                  <li><i class="icon anm anm-map-marker-al"></i>
+                    <p>198
+                      ,<br>Vallabh
+                      Nagar , Ujjain MP</p>
+                  </li>
+                  <li class="phone"><i class="icon anm anm-phone-s"></i>
+                    <p>(440)
+                      000 000 0000</p>
+                  </li>
+                  <li class="email"><i class="icon anm
+                                anm-envelope-l"></i>
+                    <p>Tee@gmail.com</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--End Footer Links-->
+          <hr>
+          <div class="footer-bottom">
+            <div class="row">
+              <!--Footer Copyright-->
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1
+                          order-md-0 order-lg-0 order-sm-1 copyright
+                          text-sm-center
+                          text-md-left text-lg-left"><span></span> <a href="templateshub.net">Bistech</a></div>
+              <!--End Footer Copyright-->
+              <!--Footer Payment Icon-->
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-0
+                          order-md-1 order-lg-1 order-sm-0 payment-icons
+                          text-right
+                          text-md-center">
+                <img src="assets/images/cards.jpg" alt="Payment">
+              </div>
+              <!--End Footer Payment Icon-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--End Footer-->
+    <!--Scoll Top-->
+    <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
+    <!--End Scoll Top-->
+
+
+    <!-- Including Jquery -->
+    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/vendor/jquery.cookie.js"></script>
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <!-- Including Javascript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/lazysizes.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Photoswipe Gallery -->
+    <script src="assets/js/vendor/photoswipe.min.js"></script>
+    <script src="assets/js/vendor/photoswipe-ui-default.min.js"></script>
+    <script>
+      $(function () {
+        var $pswp = $('.pswp')[0],
+          image = [],
+          getItems = function () {
+            var items = [];
+            $('.lightboximages a').each(function () {
+              var $href = $(this).attr('href'),
+                $size = $(this).data('size').split('x'),
+                item = {
+                  src: $href,
+                  w: $size[0],
+                  h: $size[1]
+                }
+              items.push(item);
+            });
+            return items;
+          }
+        var items = getItems();
+
+        $.each(items, function (index, value) {
+          image[index] = new Image();
+          image[index].src = value['src'];
+        });
+        $('.prlightbox').on('click', function (event) {
+          event.preventDefault();
+
+          var $index = $(".active-thumb").parent().attr('data-slick-index');
+          $index++;
+          $index = $index - 1;
+
+          var options = {
+            index: $index,
+            bgOpacity: 0.9,
+            showHideOpacity: true
+          }
+          var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+          lightBox.init();
+        });
+      });
+    </script>
+    <!-- Include Fabric.js in the page -->
+    <script src="fabric.min.js"></script>
+
+    <!-- Include DomToImage in the page -->
+    <script src="/home/qwerty/Desktop/dom-to-image-master/dist/dom-to-image.min.js"></script>
+    <script>
+      let canvas = new fabric.Canvas('tshirt-canvas');
+
+      function updateTshirtImage(imageURL) {
+        // If the user doesn't pick an option of the select, clear the canvas
+        if (!imageURL) {
+          canvas.clear();
+        }
+
+        // Create a new image that can be used in Fabric with the URL
+        fabric.Image.fromURL(imageURL, function (img) {
+          // Define the image as background image of the Canvas
+          canvas.setHeight(230);
+          canvas.setWidth(210);
+          canvas.set({ top: 150, right: 1000 });
+          canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+            // Scale the image to the canvas size
+
+            scaleX: canvas.width / img.width,
+            scaleY: canvas.height / img.height
+          });
+        });
+      }
+
+      // Update the TShirt color according to the selected color by the user
+
+      // Update the TShirt color according to the selected color by the user
+      document.getElementById("tshirt-design").addEventListener("change", function () {
+
+        // Call the updateTshirtImage method providing as first argument the URL
+        // of the image provided by the select
+        updateTshirtImage(this.value);
+      }, false);
+
+      let listElements = document.querySelectorAll('li');
+
+      // tshirt colorrrrr
+
+      listElements.forEach(element => {
+        element.addEventListener('click', function () {
+          let clr = this.getAttribute('data-color');
+          document.documentElement.style.setProperty('--color', clr);
+          listElements.forEach(element => {
+            element.style.border = "none";
+          })
+          this.style.border = "3px solid black";
+
+        })
+      });
+    </script>
+  </div>
+
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="pswp__ui
+                  pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div><button class="pswp__button
+                      pswp__button--close" title="Close (Esc)"></button><button
+            class="pswp__button pswp__button--share" title="Share"></button><button
+            class="pswp__button pswp__button--fs" title="Toggle
+                      fullscreen"></button><button class="pswp__button
+                      pswp__button--zoom" title="Zoom in/out"></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pswp__share-modal pswp__share-modal--hidden
+                    pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button
+          class="pswp__button pswp__button--arrow--right" title="Next
+                    (arrow right)"></button>
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+</html>
